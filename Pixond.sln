@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pixond.App", "Pixond\Pixond.App.csproj", "{9F0FCB69-E9B1-4EA3-A497-6845893E0F2A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pixond.Model", "Pixond.Model\Pixond.Model.csproj", "{F7320741-D51A-4CD4-AD57-A66191BB2C80}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pixond.Core", "Pixond.Core\Pixond.Core.csproj", "{3575EA2E-0FA6-47D9-9A21-7A50399D0813}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pixond.Migration", "Pixond.Migration\Pixond.Migration.csproj", "{B697FB4A-783E-476E-9418-85F676BB79E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F0FCB69-E9B1-4EA3-A497-6845893E0F2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F0FCB69-E9B1-4EA3-A497-6845893E0F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F0FCB69-E9B1-4EA3-A497-6845893E0F2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F0FCB69-E9B1-4EA3-A497-6845893E0F2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7320741-D51A-4CD4-AD57-A66191BB2C80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7320741-D51A-4CD4-AD57-A66191BB2C80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7320741-D51A-4CD4-AD57-A66191BB2C80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7320741-D51A-4CD4-AD57-A66191BB2C80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3575EA2E-0FA6-47D9-9A21-7A50399D0813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3575EA2E-0FA6-47D9-9A21-7A50399D0813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3575EA2E-0FA6-47D9-9A21-7A50399D0813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3575EA2E-0FA6-47D9-9A21-7A50399D0813}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B697FB4A-783E-476E-9418-85F676BB79E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B697FB4A-783E-476E-9418-85F676BB79E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B697FB4A-783E-476E-9418-85F676BB79E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B697FB4A-783E-476E-9418-85F676BB79E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF8690EB-5297-4262-9D87-A68D5A443D8D}
+	EndGlobalSection
+EndGlobal
