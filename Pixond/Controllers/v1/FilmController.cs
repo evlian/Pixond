@@ -2,13 +2,11 @@
 using Pixond.App.Controllers;
 using Pixond.Core.Extensions.Validation;
 using Pixond.Core.Framework.Validation.Films.Queries;
-using Pixond.Model.General.Commands.Films;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using Pixond.Model.General.Queries.Films;
 using System.Linq;
 using Pixond.Model.Response;
 using Pixond.Model.General.Queries.Films.GetAllFilms;
