@@ -110,7 +110,7 @@ namespace Pixond
             services.AddDbContext<FilmLibraryContext>(builder =>
             {
                 if (!builder.IsConfigured)
-                    builder.UseSqlServer(Configuration.GetSection("Database").GetSection("FilmLibraryConnectionString").Value);
+                    builder.UseSqlServer(Configuration.GetSection("Database").GetSection("PixondConnectionString").Value);
 
             });
             services.AddMigrations();
