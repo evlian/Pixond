@@ -4,6 +4,8 @@ using Pixond.Core.Services.Films;
 using Pixond.Core.Services.Genres;
 using Pixond.Core.Services.Users;
 using Microsoft.Extensions.DependencyInjection;
+using Pixond.Core.Abstraction.Services.Mail;
+using Pixond.Core.Services.Mail;
 
 namespace Pixond.App.Extensions.DependencyInjection
 {
@@ -14,6 +16,7 @@ namespace Pixond.App.Extensions.DependencyInjection
             services.AddScoped<IFilmsService, FilmsService>();
             services.AddScoped<IGenresService, GenresService>();
             services.AddScoped<IUsersService, UsersService>();
+            services.AddScoped<IMailService, MailService>();
         }
     }
 }

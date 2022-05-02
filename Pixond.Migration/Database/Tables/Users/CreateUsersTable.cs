@@ -1,11 +1,10 @@
 ﻿using FluentMigrator;
-using FluentMigrator.SqlServer;
 using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Pixond.Migration.Database.Tables.Users
 {
-    [Migration(202203031310, "CreateUsersTable")]
+    [Migration(202202010109, "Create Users Table")]
     [ExcludeFromCodeCoverage]
     public class CreateUsersTable : FluentMigrator.Migration
     {
@@ -20,11 +19,16 @@ namespace Pixond.Migration.Database.Tables.Users
             if (!Schema.Table("Users").Exists()) 
             {
                 Create.Table("Users")
-                    .WithColumn("UserId").AsInt32().PrimaryKey().Identity(random.Next(12365, 98547), random.Next(3, 10)).NotNullable()
-                    .WithColumn("Name").AsString().NotNullable()
-                    .WithColumn("Username").AsString().NotNullable()
-                    .WithColumn("Password").AsString().NotNullable()
-                    .WithColumn("CreatedAt").AsDateTime().NotNullable();
+                    .WithColumn("UserId").AsGuid().PrimaryKey().NotNullable()
+                    .WithColumn("FirstName").AsString(500).NotNullable()
+                    .WithColumn("LastName").AsString(500).NotNullable()
+                    .WithColumn("Email").AsString(300).NotNullable()
+                    .WithColumn("Username").AsString(200).NotNullable()
+                    .WithColumn("Password").AsString(500).NotNullable()
+                    .WithColumn("CreatedAt").AsDateTime().NotNullable()
+                    .WithColumn("CreatedBy").AsString(500).NotNullable()
+                    .WithColumn("ModifiedAt").AsDateTime().Nullable()
+                    .WithColumn("ModifiedBy").AsString(500).Nullable();
             }
         }
     }

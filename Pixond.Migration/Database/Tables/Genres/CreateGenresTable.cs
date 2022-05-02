@@ -22,9 +22,9 @@ namespace Pixond.Migration.Database.Tables.Genres
                 Create.Table("Genres")
                     .WithColumn("GenreId").AsInt32().PrimaryKey().NotNullable().Identity(random.Next(12365, 98547), random.Next(3, 10))
                     .WithColumn("Name").AsString().NotNullable()
-                    .WithColumn("CreatedBy").AsInt32().Nullable().ForeignKey("Users", "UserId")
+                    .WithColumn("CreatedBy").AsString(500).NotNullable()
                     .WithColumn("CreatedAt").AsDateTime()
-                    .WithColumn("ModifiedBy").AsInt32().Nullable().ForeignKey("Users", "UserId")
+                    .WithColumn("ModifiedBy").AsString(500).Nullable()
                     .WithColumn("ModifiedAt").AsDateTime().Nullable();
             }
         }

@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Pixond.Core.Utilities
 {
     public static class PasswordUtilities
     {
-        public static string EncryptPassword(string password)
-        {
-            string EncryptionKey = "By5Z+3AwUa3#1gev=fMYPMerJ3##hcRA";
+        public static string EncryptPassword(string password, string secretKey)
+{
+            string EncryptionKey = secretKey;
             byte[] clearBytes = Encoding.Unicode.GetBytes(password);
             using (Aes encryptor = Aes.Create())
             {

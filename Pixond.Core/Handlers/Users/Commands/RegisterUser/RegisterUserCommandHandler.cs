@@ -1,38 +1,54 @@
 ﻿using Pixond.Core.Abstraction.Services.Users;
 using Pixond.Model.Entitites;
-using Pixond.Model.General.Commands.Users;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 using Pixond.Core.Tools;
-using System.Collections.Generic;
 using Pixond.Core.Utilities;
 using Pixond.Model.General.Commands.Users.RegisterUser;
+using System;
+using AutoMapper;
+using Pixond.Model.General.Commands.Users.User;
+using Pixond.Core.Configurations;
+using Pixond.Core.Abstraction.Services.Mail;
 
 namespace Pixond.Core.Handlers.Users.Commands.RegisterUser
 {
     public class RegisterUserCommandHandler : IRequestHandler<RegisterUserCommand, RegisterUserResponse>
     {
-        private readonly IUsersService _service;
+        private readonly IUsersService _usersService;
+        private readonly IMapper _mapper;
+        private readonly EncryptionConfiguration _encryptionConfiguration;
+        private readonly IMailService _mailService;
 
-        public RegisterUserCommandHandler(IUsersService service) 
+        public RegisterUserCommandHandler(IUsersService service, IMapper mapper, EncryptionConfiguration encryptionConfiguration, IMailService mailService) 
         { 
-            _service = service;
+            _usersService = service;
+            _mapper = mapper;
+            _encryptionConfiguration = encryptionConfiguration;
+            _mailService = mailService;
         }
         public async Task<RegisterUserResponse> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
         {
             var user = new User();
+            user.UserId = Guid.NewGuid();
             user.Username = request.Username;
-            user.Password = PasswordUtilities.EncryptPassword(request.Password);
-            user.Name = request.Name;
+            user.Password = PasswordUtilities.EncryptPassword(request.Password, _encryptionConfiguration.SecretString);
+            user.FirstName = request.FirstName;
+            user.LastName = request.LastName;
+            user.Email = request.Email;
+            user.CreatedBy = "system";
+            user.CreatedAt = DateTime.Now;
+            user.ModifiedAt = DateTime.Now;
             var response = new RegisterUserResponse();
-            if (await _service.IsUsernameTaken(user.Username))
+            if (await _usersService.IsUsernameTaken(user.Username))
             {
-                response.Errors.TryAdd("username", new List<string>() { "Username is taken!" });
-                return response;
+                return null;
             }
-            response.User = await _service.RegisterUser(user);
-            response.Token = TokenUtilities.GenerateToken(response.User);
+            var registeredUser = await _usersService.RegisterUser(user);
+            response.User = _mapper.Map<PublicUser>(registeredUser);
+            response.Token = TokenUtilities.GenerateToken(registeredUser);
+            _mailService.SendMail("Pixond", response.User.Email, "Confirm your email address", "Welcome to Pixond!");
             return response;
         }
 

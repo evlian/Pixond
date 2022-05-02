@@ -2,6 +2,7 @@
 using Pixond.Core.Framework.Mapping.Films.Queries.GetAllFilms;
 using Pixond.Core.Framework.Mapping.Genres.Commands.AddGenre;
 using Microsoft.Extensions.DependencyInjection;
+using Pixond.Core.Framework.Mapping.Users.v1.Commands;
 
 namespace Pixond.App.Extensions.DependencyInjection
 {
@@ -14,6 +15,7 @@ namespace Pixond.App.Extensions.DependencyInjection
             {
                 cfg.AddProfile<GetAllFilmsMappings>();
                 cfg.AddProfile<AddGenreMappings>();
+                cfg.AddProfile<SharedUsersCommandsMappings>();
             });
 
             IMapper mapper = config.CreateMapper();

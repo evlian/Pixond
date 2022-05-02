@@ -10,6 +10,8 @@ using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Text.Json.Serialization;
+using Microsoft.Extensions.Options;
 
 namespace Pixond
 {
@@ -26,6 +28,18 @@ namespace Pixond
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowTrackingControllers", builder =>
+                {
+                    builder.AllowAnyMethod();
+                    builder.AllowAnyHeader();
+                    builder.WithOrigins("https://aeae-2a03-4b80-c71f-f260-d8f3-38e2-ac66-22be.eu.ngrok.io:80",
+                                        "http://aeae-2a03-4b80-c71f-f260-d8f3-38e2-ac66-22be.eu.ngrok.io:80");
+                    builder.AllowCredentials();
+                });
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pixond", Version = "v1" });
@@ -46,14 +60,21 @@ namespace Pixond
                         {
                             Reference = new OpenApiReference
                             {
-                                Type=ReferenceType.SecurityScheme,
-                                Id="Bearer"
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
                             }
                         },
                         new string[]{}
                     }
                 });
             });
+
+            services.AddControllers()
+                .AddJsonOptions(opts =>
+                {
+                    opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                });
+
 
             services.RegisterControllers();
             services.AddMediatRExtension();
@@ -70,7 +91,7 @@ namespace Pixond
             })
                 .AddJwtBearer(options =>
                 {
-                    var key = Encoding.ASCII.GetBytes("secret string 123123");
+                    var key = Encoding.ASCII.GetBytes(Configuration.GetSection("Encryption").GetSection("SecretString").Value);
                     options.SaveToken = true;
                     options.RequireHttpsMetadata = false;
                     options.TokenValidationParameters = new TokenValidationParameters
@@ -78,12 +99,12 @@ namespace Pixond
                         ValidateIssuerSigningKey = true,
                         IssuerSigningKey = new SymmetricSecurityKey(key),
                         ValidateIssuer = false,
-                        ValidateAudience = false,  
-                    };
-                });
-
+                        ValidateAudience = false,
+};
+});
 
             
+
             services.AddMappingWithProfiles();
             services.AddConfigurations(Configuration);
             services.AddDbContext<FilmLibraryContext>(builder =>
@@ -98,6 +119,8 @@ namespace Pixond
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors("AllowTrackingControllers");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

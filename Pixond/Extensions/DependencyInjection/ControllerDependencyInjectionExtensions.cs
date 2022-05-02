@@ -12,6 +12,8 @@ namespace Pixond.App.Extensions.DependencyInjection
                 .ConfigureApiBehaviorOptions(opt => {
                     opt.SuppressModelStateInvalidFilter = true;
                 }).AddFluentValidationExtension();
+            
         }
+
     }
 }

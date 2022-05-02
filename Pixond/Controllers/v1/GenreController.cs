@@ -7,6 +7,7 @@ using System.Linq;
 using Pixond.Model.Response;
 using Pixond.Model.General.Queries.Genres.GetAllGenres;
 using Pixond.Model.General.Commands.Genres.AddGenre;
+using System;
 
 namespace Pixond.App.Controllers
 {
@@ -39,13 +40,8 @@ namespace Pixond.App.Controllers
         public async Task<ActionResult<ResponseModel<AddGenreResponse>>> AddGenre([FromBody] AddGenreCommand command)
         {
             var response = new ResponseModel<AddGenreResponse>();
-            int id;
-            int.TryParse(HttpContext.User.Claims.FirstOrDefault().Value, out id);
-            if (id == 0)
-            {
-                return Unauthorized(response.Unauthorized().AddMessage("Unauthorized request!"));
-            }
-            command.CreatedBy = id;
+
+            command.CreatedBy = HttpContext.User.Claims.FirstOrDefault().Value;
             var addGenreResponse = await Mediator.Send(command);
             return Ok(response.Ok(addGenreResponse));
         }

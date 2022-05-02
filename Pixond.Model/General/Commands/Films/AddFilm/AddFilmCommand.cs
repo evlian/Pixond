@@ -11,7 +11,7 @@ namespace Pixond.Model.General.Commands.Films.AddFilm
         public string Director { get; set; }
         public string Description { get; set; }
         [JsonIgnore]
-        public int CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
         public int Length { get; set; }
         public DateTime ReleaseDate { get; set; }
         public ICollection<string> FilmGenres { get; set; }

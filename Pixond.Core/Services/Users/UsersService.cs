@@ -23,25 +23,19 @@ namespace Pixond.Core.Services.Users
 
         public async Task<User> AuthenticateUser(User user)
         {
-            User found = await _context.Users.Where(u => u.Username == user.Username).FirstOrDefaultAsync();
-            if (found == null)
-                return null;
-            if (found.Password != user.Password)
-                return null;
-            return found;
+            return await _context.Users.Where(u => u.Username == user.Username && u.Password == user.Password).FirstOrDefaultAsync();
         }
 
-        public async Task<User> GetUserById(int id)
+        public async Task<User> GetUserById(Guid userId)
         {
-            return await _context.Users.SingleOrDefaultAsync(e => e.UserId == id);
+            return await _context.Users.SingleOrDefaultAsync(e => e.UserId == userId);
         }
 
         public async Task<User> RegisterUser(User user)
         {
-            user.CreatedAt = DateTime.Now;
             await _context.AddAsync(user);
             await _context.SaveChangesAsync();
-            return await AuthenticateUser(user);
+            return _context.Users.FirstOrDefault(x => x.UserId == user.UserId);
         }
 
         public async Task<bool> IsUsernameTaken(string username)

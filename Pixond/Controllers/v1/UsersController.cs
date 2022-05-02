@@ -34,9 +34,8 @@ namespace Pixond.App.Controllers.v1
         {
             var response = new ResponseModel<RegisterUserResponse>();
             var registerUserResponse = await Mediator.Send(command);
-            if (registerUserResponse.Errors.Count > 0) 
+            if (registerUserResponse == null) 
             {
-                response.AddErrors(registerUserResponse.Errors);
                 return BadRequest(response.BadRequest());
             }
             return Ok(response.Ok(registerUserResponse));
@@ -53,5 +52,6 @@ namespace Pixond.App.Controllers.v1
             }
             return Ok(response.Ok(authUserResponse));
         }
+
     }
 }

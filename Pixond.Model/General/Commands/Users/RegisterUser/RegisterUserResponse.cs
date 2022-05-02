@@ -1,12 +1,10 @@
-﻿using Pixond.Model.Entitites;
-using System.Collections.Generic;
+﻿using Pixond.Model.General.Commands.Users.User;
 
 namespace Pixond.Model.General.Commands.Users.RegisterUser
 {
     public class RegisterUserResponse
     {
-        public User User { get; set; }
+        public PublicUser User { get; set; }
         public string Token { get; set; }
-        public Dictionary<string, List<string>> Errors = new();
     }
 }

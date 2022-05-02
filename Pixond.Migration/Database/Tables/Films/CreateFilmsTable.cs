@@ -26,9 +26,9 @@ namespace Pixond.Migration.Database.Tables.Films
                     .WithColumn("Director").AsString().NotNullable()
                     .WithColumn("ReleaseDate").AsDate().Nullable()
                     .WithColumn("Length").AsInt32().Nullable()
-                    .WithColumn("CreatedBy").AsInt32().Nullable().ForeignKey("Users", "UserId")
+                    .WithColumn("CreatedBy").AsString(500).NotNullable()
                     .WithColumn("CreatedAt").AsDateTime().NotNullable()
-                    .WithColumn("ModifiedBy").AsInt32().Nullable().ForeignKey("Users", "UserId")
+                    .WithColumn("ModifiedBy").AsString(500).Nullable()
                     .WithColumn("ModifiedAt").AsDateTime().Nullable();
                     
             }

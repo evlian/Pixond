@@ -64,13 +64,7 @@ namespace Pixond.Controllers
         public async Task<ActionResult<ResponseModel<AddFilmResponse>> >AddFilm([FromBody] AddFilmCommand command)
         {
             var response = new ResponseModel<AddFilmResponse>();
-            int id = -1;
-            int.TryParse(HttpContext.User.Claims.FirstOrDefault().Value, out id);
-            if (id == -1) 
-            {
-                return Unauthorized(response.Unauthorized().AddMessage("User is not authorized!"));
-            }
-            command.CreatedBy = id;
+            command.CreatedBy = HttpContext.User.Claims.FirstOrDefault().Value;
             if (!ModelState.IsValid) 
             {
                 response.AddErrors(ModelState.GetErrorMessages());
