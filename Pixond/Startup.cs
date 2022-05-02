@@ -34,8 +34,7 @@ namespace Pixond
                 {
                     builder.AllowAnyMethod();
                     builder.AllowAnyHeader();
-                    builder.WithOrigins("https://aeae-2a03-4b80-c71f-f260-d8f3-38e2-ac66-22be.eu.ngrok.io:80",
-                                        "http://aeae-2a03-4b80-c71f-f260-d8f3-38e2-ac66-22be.eu.ngrok.io:80");
+                    builder.WithOrigins("https://portal.azure.com.");
                     builder.AllowCredentials();
                 });
             });
