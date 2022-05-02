@@ -1,0 +1,17 @@
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Migration\bin\Debug\net5.0\Pixond.Migration.deps.json
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Migration\bin\Debug\net5.0\Pixond.Migration.dll
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Migration\bin\Debug\net5.0\Pixond.Migration.pdb
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Migration\bin\Debug\net5.0\Pixond.Core.dll
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Migration\bin\Debug\net5.0\Pixond.Model.dll
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Migration\bin\Debug\net5.0\Pixond.Core.pdb
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Migration\bin\Debug\net5.0\Pixond.Model.pdb
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Migration\obj\Debug\net5.0\Pixond.Migration.csproj.AssemblyReference.cache
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Migration\obj\Debug\net5.0\Pixond.Migration.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Migration\obj\Debug\net5.0\Pixond.Migration.AssemblyInfoInputs.cache
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Migration\obj\Debug\net5.0\Pixond.Migration.AssemblyInfo.cs
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Migration\obj\Debug\net5.0\Pixond.Migration.csproj.CoreCompileInputs.cache
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Migration\obj\Debug\net5.0\Pixond.Migration.csproj.CopyComplete
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Migration\obj\Debug\net5.0\Pixond.Migration.dll
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Migration\obj\Debug\net5.0\refint\Pixond.Migration.dll
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Migration\obj\Debug\net5.0\Pixond.Migration.pdb
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Migration\obj\Debug\net5.0\ref\Pixond.Migration.dll

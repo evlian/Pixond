@@ -1,0 +1,15 @@
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Core\bin\Debug\net5.0\Pixond.Core.deps.json
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Core\bin\Debug\net5.0\Pixond.Core.dll
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Core\bin\Debug\net5.0\Pixond.Core.pdb
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Core\bin\Debug\net5.0\Pixond.Model.dll
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Core\bin\Debug\net5.0\Pixond.Model.pdb
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Core\obj\Debug\net5.0\Pixond.Core.csproj.AssemblyReference.cache
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Core\obj\Debug\net5.0\Pixond.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Core\obj\Debug\net5.0\Pixond.Core.AssemblyInfoInputs.cache
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Core\obj\Debug\net5.0\Pixond.Core.AssemblyInfo.cs
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Core\obj\Debug\net5.0\Pixond.Core.csproj.CoreCompileInputs.cache
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Core\obj\Debug\net5.0\Pixond.Core.csproj.CopyComplete
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Core\obj\Debug\net5.0\Pixond.Core.dll
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Core\obj\Debug\net5.0\refint\Pixond.Core.dll
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Core\obj\Debug\net5.0\Pixond.Core.pdb
+C:\Users\User\Source\Repos\evlian\Pixond\Pixond.Core\obj\Debug\net5.0\ref\Pixond.Core.dll

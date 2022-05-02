@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Pixond",
+    "\\Pixond.Core",
+    "\\Pixond.Core\\Handlers",
+    "\\Pixond.Core\\Handlers\\Users",
+    "\\Pixond.Core\\Handlers\\Users\\Commands",
+    "\\Pixond.Core\\Handlers\\Users\\Commands\\RegisterUser"
+  ],
+  "SelectedNode": "\\Pixond.sln",
+  "PreviewInSolutionExplorer": false
+}
