@@ -16,7 +16,7 @@ namespace Pixond.Migration.Database.Tables.Films
 
         public override void Up()
         {
-            if (!Schema.Table("Films").Exists())
+            if (Schema.Table("Films") == null)
             {
                 var random = new Random();
                 Create.Table("Films")

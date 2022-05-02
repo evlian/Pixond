@@ -39,7 +39,6 @@ namespace Pixond.Core.Handlers.Users.Commands.RegisterUser
             user.Email = request.Email;
             user.CreatedBy = "system";
             user.CreatedAt = DateTime.Now;
-            user.ModifiedAt = DateTime.Now;
             var response = new RegisterUserResponse();
             if (await _usersService.IsUsernameTaken(user.Username))
             {
@@ -47,7 +46,7 @@ namespace Pixond.Core.Handlers.Users.Commands.RegisterUser
             }
             var registeredUser = await _usersService.RegisterUser(user);
             response.User = _mapper.Map<PublicUser>(registeredUser);
-            response.Token = TokenUtilities.GenerateToken(registeredUser);
+            response.Token = TokenUtilities.GenerateToken(registeredUser, _encryptionConfiguration.SecretString);
             _mailService.SendMail("Pixond", response.User.Email, "Confirm your email address", "Welcome to Pixond!");
             return response;
         }

@@ -16,7 +16,7 @@ namespace Pixond.Migration.Database.Tables.Users
         public override void Up()
         {
             var random = new Random();
-            if (!Schema.Table("Users").Exists()) 
+            if (Schema.Table("Users") == null) 
             {
                 Create.Table("Users")
                     .WithColumn("UserId").AsGuid().PrimaryKey().NotNullable()

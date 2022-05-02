@@ -33,7 +33,7 @@ namespace Pixond.Core.Handlers.Users.Commands.AuthenticateUser
             if (authenticatedUser == null)
                 return response;
             response.User = _mapper.Map<PublicUser>(authenticatedUser);
-            response.Token = (TokenUtilities.GenerateToken(authenticatedUser));
+            response.Token = (TokenUtilities.GenerateToken(authenticatedUser, _encryptionConfiguration.SecretString));
             return response;
         }
     }

@@ -15,7 +15,7 @@ namespace Pixond.Migration.Database.Tables.FilmGenre
 
         public override void Up()
         {
-            if (!Schema.Table("FilmGenre").Exists())
+            if (Schema.Table("FilmGenre") == null)
             {
                 Create.Table("FilmGenre")
                     .WithColumn("FilmId").AsInt32().NotNullable().ForeignKey("Films", "FilmId")

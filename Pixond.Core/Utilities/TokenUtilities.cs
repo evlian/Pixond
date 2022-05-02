@@ -9,10 +9,10 @@ namespace Pixond.Core.Tools
 {
     public static class TokenUtilities
     {
-        public static string GenerateToken(User user)
+        public static string GenerateToken(User user, string secretKey)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes("secret string 123123");
+            var key = Encoding.ASCII.GetBytes(secretKey);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[] { new Claim("id", user.UserId.ToString()) }),
