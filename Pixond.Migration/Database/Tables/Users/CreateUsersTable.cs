@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Pixond.Migration.Database.Tables.Users
 {
-    [Migration(202202010109, "Create Users Table")]
+    [Migration(302202010109, "Create Users Table")]
     [ExcludeFromCodeCoverage]
     public class CreateUsersTable : FluentMigrator.Migration
     {
@@ -16,7 +16,7 @@ namespace Pixond.Migration.Database.Tables.Users
         public override void Up()
         {
             var random = new Random();
-            if (Schema.Table("Users") == null) 
+            if (true) 
             {
                 Create.Table("Users")
                     .WithColumn("UserId").AsGuid().PrimaryKey().NotNullable()

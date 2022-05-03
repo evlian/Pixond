@@ -15,6 +15,7 @@ using Pixond.Model.General.Commands.Films.AddFilm;
 using Pixond.Model.General.Queries.Films.GetRandomFilm;
 using Pixond.Model.General.Queries.Films.GetFilmsByTitle;
 using Pixond.Model.General.Commands.Films.EditFilm;
+using Pixond.Model.General.Commands.Films.DeleteFilm;
 
 namespace Pixond.Controllers
 {
@@ -99,6 +100,17 @@ namespace Pixond.Controllers
             var response = new ResponseModel<EditFilmResponse>();
             var editFilmResponse = await Mediator.Send(command);
             return Ok(response.Ok(editFilmResponse));
+        }
+
+        [Authorize]
+        [HttpDelete]
+        public async Task<ActionResult<ResponseModel<DeleteFilmResponse>>> DeleteFilm([FromQuery] int filmId)
+        { 
+            var response = new ResponseModel<DeleteFilmResponse>();
+            var deleteFilmCommand = new DeleteFilmCommand() { FilmId = filmId};
+            var deleteFilmResponse = await Mediator.Send(deleteFilmCommand);
+            return Ok(response.Ok(deleteFilmResponse));
+        
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Pixond.Migration.Database.Tables.FilmGenre
 {
-    [Migration(202203031313, "CreateFilmGenreTable")]
+    [Migration(302203031313, "CreateFilmGenreTable")]
     [ExcludeFromCodeCoverage]
     public class CreateFIlmGenreTable : FluentMigrator.Migration
     {
@@ -15,11 +15,11 @@ namespace Pixond.Migration.Database.Tables.FilmGenre
 
         public override void Up()
         {
-            if (Schema.Table("FilmGenre") == null)
+            if (true)
             {
                 Create.Table("FilmGenre")
-                    .WithColumn("FilmId").AsInt32().NotNullable().ForeignKey("Films", "FilmId")
-                    .WithColumn("GenreId").AsInt32().NotNullable().ForeignKey("Genres", "GenreId");
+                    .WithColumn("FilmId").AsInt32().NotNullable().ForeignKey("Films", "FilmId").OnDelete(System.Data.Rule.Cascade)
+                    .WithColumn("GenreId").AsInt32().NotNullable().ForeignKey("Genres", "GenreId").OnDelete(System.Data.Rule.Cascade);
             }
         }
     }

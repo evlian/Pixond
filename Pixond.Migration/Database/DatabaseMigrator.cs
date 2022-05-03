@@ -24,7 +24,7 @@ namespace Pixond.Migration.Database
                                         (
                                             runner => runner
                                                 .AddSqlServer()
-                                                .WithGlobalConnectionString(_databaseConfiguration.FilmLibraryConnectionString)
+                                                .WithGlobalConnectionString(_databaseConfiguration.PixondConnectionString)
                                                 .ScanIn(typeof(DatabaseMigrator).Assembly)
                                                 .For.Migrations()
                                         )

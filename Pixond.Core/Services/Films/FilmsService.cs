@@ -45,6 +45,14 @@ namespace Pixond.Core.Services.Films
             return filmContext;
         }
 
+        public async Task<bool> DeleteFilmAsync(int id, CancellationToken cancellationToken)
+        {
+            var film = await _context.Films.FindAsync(id);
+            _context.Films.Remove(film);
+            await _context.SaveChangesAsync(cancellationToken);
+            return true;
+        }
+
         public async Task<Film> EditFilm(Film film, int id, CancellationToken cancellationToken)
         {
             film.FilmId = id;

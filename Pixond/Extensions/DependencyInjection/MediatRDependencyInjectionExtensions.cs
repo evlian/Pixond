@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Pixond.Core.Handlers.Films.Commands.AddFilm;
+using Pixond.Core.Handlers.Films.Commands.DeleteFilm;
 using Pixond.Core.Handlers.Films.Commands.EditFilm;
 using Pixond.Core.Handlers.Films.Queries.GetAllFilms;
 using Pixond.Core.Handlers.Films.Queries.GetFilmsByTitle;
@@ -10,6 +11,7 @@ using Pixond.Core.Handlers.Genres.Queries.GetAllGenres;
 using Pixond.Core.Handlers.Users.Commands.AuthenticateUser;
 using Pixond.Core.Handlers.Users.Commands.RegisterUser;
 using Pixond.Model.General.Commands.Films.AddFilm;
+using Pixond.Model.General.Commands.Films.DeleteFilm;
 using Pixond.Model.General.Commands.Films.EditFilm;
 using Pixond.Model.General.Commands.Genres.AddGenre;
 using Pixond.Model.General.Commands.Users.AuthenticateUser;
@@ -36,6 +38,7 @@ namespace Pixond.App.Extensions.DependencyInjection
             services.AddTransient<IRequestHandler<EditFilmCommand, EditFilmResponse>, EditFilmCommandHandler>();
             services.AddTransient<IRequestHandler<RegisterUserCommand, RegisterUserResponse>, RegisterUserCommandHandler>();
             services.AddTransient<IRequestHandler<AuthenticateUserCommand, AuthenticateUserResponse>, AuthenticateUserCommandHandler>();
+            services.AddTransient<IRequestHandler<DeleteFilmCommand, DeleteFilmResponse>, DeleteFilmHandler>();
         }
 
         public static void AddQueryHandlers(this IServiceCollection services)

@@ -2,6 +2,6 @@
 {
     public class DatabaseConfiguration
     {
-        public string FilmLibraryConnectionString { get; set; }
+        public string PixondConnectionString { get; set; }
     }
 }

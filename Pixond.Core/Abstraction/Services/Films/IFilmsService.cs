@@ -15,6 +15,6 @@ namespace Pixond.Core.Services.Films
         public Task<Film> GetRandomFilm(CancellationToken cancellationToken);
         public Task<Film> AddFilm(AddFilmCommand film, CancellationToken cancellation);
         public Task<Film> EditFilm(Film film, int id, CancellationToken cancellationToken);
-        
+        public Task<bool> DeleteFilmAsync(int id, CancellationToken cancellationToken);
     }
 }

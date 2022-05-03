@@ -112,6 +112,7 @@ namespace Pixond
                     builder.UseSqlServer(Configuration.GetSection("Database").GetSection("PixondConnectionString").Value);
 
             });
+
             services.AddMigrations();
         }
 

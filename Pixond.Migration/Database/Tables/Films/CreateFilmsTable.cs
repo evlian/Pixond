@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Pixond.Migration.Database.Tables.Films
 {
-    [Migration(202203031312, "CreateFilmsTable")]
+    [Migration(302203031312, "CreateFilmsTable")]
     [ExcludeFromCodeCoverage]
     public class CreateFilmsTable : FluentMigrator.Migration
     {
@@ -16,7 +16,7 @@ namespace Pixond.Migration.Database.Tables.Films
 
         public override void Up()
         {
-            if (Schema.Table("Films") == null)
+            if (true)
             {
                 var random = new Random();
                 Create.Table("Films")
